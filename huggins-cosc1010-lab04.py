@@ -92,20 +92,27 @@ min_temps = [
 # You cannot use any pre-existing functions (like mean()) and must perform the calculations manually.
 # Output the results of both calculations.
 
-# For the next part, determine the highest and lowest recorded temperatures.
-# HINT: You can find this information without using any logic or looping.
-
 max_total, min_total = 0, 0
 max_average, min_average = 0, 0
 
-for temp in max_temps:
-    max_total += temp
+for max_temp, min_temp in zip(max_temps, min_temps):
+    max_total += max_temp
+    min_total += min_temp
 
 max_average = max_total / len(max_temps)
 print(f"The average maximum temperature is: {round(max_average)} °F")
 
-for temp in min_temps:
-    min_total += temp
-
 min_average = min_total / len(min_temps)
 print(f"The average minimum temperature is: {round(min_average)} °F")
+
+# For the next part, determine the highest and lowest recorded temperatures.
+# HINT: You can find this information without using any logic or looping.
+
+min_temps.sort()
+max_temps.sort()
+
+lowest = min_temps[0]
+highest = max_temps[-1]
+
+print(f"The lowest recorded temperature was {lowest} °F")
+print(f"The higest recorded temperature was {highest} °F")
